@@ -14,71 +14,73 @@
       </div>
       <nav class="flex items-center gap-8">
         <a
-          class="group relative flex flex-col items-center text-lg text-neutral-500 [&.active]:text-emerald-600"
+          class="group relative flex flex-col items-center text-lg"
           routerLink="/"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
         >
           <span
-            class="transition-transform duration-300 group-[.active]:-translate-y-1/4"
+            class="text-neutral-500 transition-all duration-300 group-hover:text-emerald-500 group-[.active]:-translate-y-1/4 group-[.active]:text-emerald-600 group-[.active]:group-hover:text-emerald-500"
             >Home</span
           >
           <div
-            class="absolute top-1/2 size-2 justify-center rounded-full opacity-0 transition-all duration-300 group-[.active]:block group-[.active]:translate-y-1/2 group-[.active]:bg-emerald-600 group-[.active]:opacity-100"
+            class="absolute top-1/2 size-2 justify-center rounded-full opacity-0 transition-all duration-300 group-hover:bg-emerald-500 group-[.active]:block group-[.active]:translate-y-full group-[.active]:bg-emerald-600 group-[.active]:opacity-100 group-[.active]:group-hover:bg-emerald-500"
           ></div
         ></a>
         <a
-          class="group relative flex flex-col items-center text-lg text-neutral-500 [&.active]:text-emerald-600"
+          class="group relative flex flex-col items-center text-lg"
           routerLink="/property"
           routerLinkActive="active"
           ><span
-            class="transition-transform duration-300 group-[.active]:-translate-y-1/4"
+            class="text-neutral-500 transition-all duration-300 group-hover:text-emerald-500 group-[.active]:-translate-y-1/4 group-[.active]:text-emerald-600 group-[.active]:group-hover:text-emerald-500"
             >Property</span
           >
           <div
-            class="absolute top-1/2 size-2 justify-center rounded-full opacity-0 transition-all duration-300 group-[.active]:block group-[.active]:translate-y-1/2 group-[.active]:bg-emerald-600 group-[.active]:opacity-100"
+            class="absolute top-1/2 size-2 justify-center rounded-full opacity-0 transition-all duration-300 group-hover:bg-emerald-500 group-[.active]:block group-[.active]:translate-y-full group-[.active]:bg-emerald-600 group-[.active]:opacity-100 group-[.active]:group-hover:bg-emerald-500"
           ></div>
         </a>
         <a
-          class="group relative flex flex-col items-center text-lg text-neutral-500 [&.active]:text-emerald-600"
+          class="group relative flex flex-col items-center text-lg"
           routerLink="/about"
           routerLinkActive="active"
           ><span
-            class="transition-transform duration-300 group-[.active]:-translate-y-1/4"
+            class="text-neutral-500 transition-all duration-300 group-hover:text-emerald-500 group-[.active]:-translate-y-1/4 group-[.active]:text-emerald-600 group-[.active]:group-hover:text-emerald-500"
             >About</span
           >
           <div
-            class="absolute top-1/2 size-2 justify-center rounded-full opacity-0 transition-all duration-300 group-[.active]:block group-[.active]:translate-y-1/2 group-[.active]:bg-emerald-600 group-[.active]:opacity-100"
+            class="absolute top-1/2 size-2 justify-center rounded-full opacity-0 transition-all duration-300 group-hover:bg-emerald-500 group-[.active]:block group-[.active]:translate-y-full group-[.active]:bg-emerald-600 group-[.active]:opacity-100 group-[.active]:group-hover:bg-emerald-500"
           ></div
         ></a>
         <a
-          class="group relative flex flex-col items-center text-lg text-neutral-500 [&.active]:text-emerald-600"
+          class="group relative flex flex-col items-center text-lg"
           routerLink="/service"
           routerLinkActive="active"
           ><span
-            class="transition-transform duration-300 group-[.active]:-translate-y-1/4"
+            class="text-neutral-500 transition-all duration-300 group-hover:text-emerald-500 group-[.active]:-translate-y-1/4 group-[.active]:text-emerald-600 group-[.active]:group-hover:text-emerald-500"
             >Service</span
           >
           <div
-            class="absolute top-1/2 size-2 justify-center rounded-full opacity-0 transition-all duration-300 group-[.active]:block group-[.active]:translate-y-1/2 group-[.active]:bg-emerald-600 group-[.active]:opacity-100"
+            class="absolute top-1/2 size-2 justify-center rounded-full opacity-0 transition-all duration-300 group-hover:bg-emerald-500 group-[.active]:block group-[.active]:translate-y-full group-[.active]:bg-emerald-600 group-[.active]:opacity-100 group-[.active]:group-hover:bg-emerald-500"
           ></div
         ></a>
         <a
-          class="group relative flex flex-col items-center text-lg text-neutral-500 [&.active]:text-emerald-600"
+          class="group relative flex flex-col items-center text-lg"
           routerLink="/contact"
           routerLinkActive="active"
           ><span
-            class="transition-transform duration-300 group-[.active]:-translate-y-1/4"
+            class="text-neutral-500 transition-all duration-300 group-hover:text-emerald-500 group-[.active]:-translate-y-1/4 group-[.active]:text-emerald-600 group-[.active]:group-hover:text-emerald-500"
             >Contact</span
           >
           <div
-            class="absolute top-1/2 size-2 justify-center rounded-full opacity-0 transition-all duration-300 group-[.active]:block group-[.active]:translate-y-1/2 group-[.active]:bg-emerald-600 group-[.active]:opacity-100"
+            class="absolute top-1/2 size-2 justify-center rounded-full opacity-0 transition-all duration-300 group-hover:bg-emerald-500 group-[.active]:block group-[.active]:translate-y-full group-[.active]:bg-emerald-600 group-[.active]:opacity-100 group-[.active]:group-hover:bg-emerald-500"
           ></div
         ></a>
       </nav>
       <div class="flex h-full gap-5 place-self-end">
         <button class="h-full w-32 text-emerald-600">Sign in</button>
-        <button class="h-full w-32 rounded-md bg-emerald-600 text-white">
+        <button
+          class="h-full w-32 rounded-md bg-emerald-600 text-white transition-colors duration-300 hover:bg-emerald-500"
+        >
           Login
         </button>
       </div>
