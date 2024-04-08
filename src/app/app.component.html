@@ -1,3 +1,73 @@
-<main>
-  <h1>Hello there!</h1>
-</main>
+<div
+  id="page"
+  class="flex h-screen w-full place-content-center bg-neutral-100 py-8"
+>
+  <div id="content" class="h-full w-full xl:w-4/5">
+    <div id="header" class="flex h-14 w-full justify-between">
+      <div id="logo" class="flex items-center gap-2 text-2xl text-emerald-600">
+        <div
+          class="flex size-10 items-center justify-center rounded-full bg-emerald-600 font-extrabold text-white"
+        >
+          M
+        </div>
+        <span class="">Mulih</span>
+      </div>
+      <nav class="flex items-center gap-8">
+        <a
+          class="group flex flex-col items-center text-lg text-neutral-500 [&.active]:text-emerald-600"
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <span>Home</span>
+          <div
+            class="hidden size-2 justify-center rounded-full bg-emerald-600 group-[.active]:block"
+          ></div
+        ></a>
+        <a
+          class="group flex flex-col items-center text-lg text-neutral-500 [&.active]:text-emerald-600"
+          routerLink="/property"
+          routerLinkActive="active"
+          >Property
+          <div
+            class="hidden size-2 justify-center rounded-full bg-emerald-600 group-[.active]:block"
+          ></div>
+        </a>
+        <a
+          class="group flex flex-col items-center text-lg text-neutral-500 [&.active]:text-emerald-600"
+          routerLink="/about"
+          routerLinkActive="active"
+          >About
+          <div
+            class="hidden size-2 justify-center rounded-full bg-emerald-600 group-[.active]:block"
+          ></div
+        ></a>
+        <a
+          class="group flex flex-col items-center text-lg text-neutral-500 [&.active]:text-emerald-600"
+          routerLink="/service"
+          routerLinkActive="active"
+          >Service
+          <div
+            class="hidden size-2 justify-center rounded-full bg-emerald-600 group-[.active]:block"
+          ></div
+        ></a>
+        <a
+          class="group flex flex-col items-center text-lg text-neutral-500 [&.active]:text-emerald-600"
+          routerLink="/contact"
+          routerLinkActive="active"
+          >Contact
+          <div
+            class="hidden size-2 justify-center rounded-full bg-emerald-600 group-[.active]:block"
+          ></div
+        ></a>
+      </nav>
+      <div class="flex h-full gap-5 place-self-end">
+        <button class="h-full w-32 text-emerald-600">Sign in</button>
+        <button class="h-full w-32 rounded-md bg-emerald-600 text-white">
+          Login
+        </button>
+      </div>
+    </div>
+    <main class="mt-32"><router-outlet></router-outlet></main>
+  </div>
+</div>
