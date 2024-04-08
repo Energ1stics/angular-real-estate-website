@@ -14,50 +14,65 @@
       </div>
       <nav class="flex items-center gap-8">
         <a
-          class="group flex flex-col items-center text-lg text-neutral-500 [&.active]:text-emerald-600"
+          class="group relative flex flex-col items-center text-lg text-neutral-500 [&.active]:text-emerald-600"
           routerLink="/"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
         >
-          <span>Home</span>
+          <span
+            class="transition-transform duration-300 group-[.active]:-translate-y-1/4"
+            >Home</span
+          >
           <div
-            class="hidden size-2 justify-center rounded-full bg-emerald-600 group-[.active]:block"
+            class="absolute top-1/2 size-2 justify-center rounded-full opacity-0 transition-all duration-300 group-[.active]:block group-[.active]:translate-y-1/2 group-[.active]:bg-emerald-600 group-[.active]:opacity-100"
           ></div
         ></a>
         <a
-          class="group flex flex-col items-center text-lg text-neutral-500 [&.active]:text-emerald-600"
+          class="group relative flex flex-col items-center text-lg text-neutral-500 [&.active]:text-emerald-600"
           routerLink="/property"
           routerLinkActive="active"
-          >Property
+          ><span
+            class="transition-transform duration-300 group-[.active]:-translate-y-1/4"
+            >Property</span
+          >
           <div
-            class="hidden size-2 justify-center rounded-full bg-emerald-600 group-[.active]:block"
+            class="absolute top-1/2 size-2 justify-center rounded-full opacity-0 transition-all duration-300 group-[.active]:block group-[.active]:translate-y-1/2 group-[.active]:bg-emerald-600 group-[.active]:opacity-100"
           ></div>
         </a>
         <a
-          class="group flex flex-col items-center text-lg text-neutral-500 [&.active]:text-emerald-600"
+          class="group relative flex flex-col items-center text-lg text-neutral-500 [&.active]:text-emerald-600"
           routerLink="/about"
           routerLinkActive="active"
-          >About
+          ><span
+            class="transition-transform duration-300 group-[.active]:-translate-y-1/4"
+            >About</span
+          >
           <div
-            class="hidden size-2 justify-center rounded-full bg-emerald-600 group-[.active]:block"
+            class="absolute top-1/2 size-2 justify-center rounded-full opacity-0 transition-all duration-300 group-[.active]:block group-[.active]:translate-y-1/2 group-[.active]:bg-emerald-600 group-[.active]:opacity-100"
           ></div
         ></a>
         <a
-          class="group flex flex-col items-center text-lg text-neutral-500 [&.active]:text-emerald-600"
+          class="group relative flex flex-col items-center text-lg text-neutral-500 [&.active]:text-emerald-600"
           routerLink="/service"
           routerLinkActive="active"
-          >Service
+          ><span
+            class="transition-transform duration-300 group-[.active]:-translate-y-1/4"
+            >Service</span
+          >
           <div
-            class="hidden size-2 justify-center rounded-full bg-emerald-600 group-[.active]:block"
+            class="absolute top-1/2 size-2 justify-center rounded-full opacity-0 transition-all duration-300 group-[.active]:block group-[.active]:translate-y-1/2 group-[.active]:bg-emerald-600 group-[.active]:opacity-100"
           ></div
         ></a>
         <a
-          class="group flex flex-col items-center text-lg text-neutral-500 [&.active]:text-emerald-600"
+          class="group relative flex flex-col items-center text-lg text-neutral-500 [&.active]:text-emerald-600"
           routerLink="/contact"
           routerLinkActive="active"
-          >Contact
+          ><span
+            class="transition-transform duration-300 group-[.active]:-translate-y-1/4"
+            >Contact</span
+          >
           <div
-            class="hidden size-2 justify-center rounded-full bg-emerald-600 group-[.active]:block"
+            class="absolute top-1/2 size-2 justify-center rounded-full opacity-0 transition-all duration-300 group-[.active]:block group-[.active]:translate-y-1/2 group-[.active]:bg-emerald-600 group-[.active]:opacity-100"
           ></div
         ></a>
       </nav>
