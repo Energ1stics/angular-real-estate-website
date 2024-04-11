@@ -80,14 +80,32 @@
         ></a>
       </nav>
       <div class="flex h-full gap-5 place-self-end">
-        <button class="h-full w-32 text-emerald-600">Sign in</button>
+        <button
+          class="h-full w-32 text-emerald-600"
+          (click)="this.clerk.openSignUp()"
+          *ngIf="!this.clerk.user"
+        >
+          Sign up
+        </button>
         <button
           class="h-full w-32 rounded-md bg-emerald-600 text-white transition-colors duration-300 hover:bg-emerald-500"
+          (click)="this.clerk.openSignIn()"
+          *ngIf="!this.clerk.user"
         >
-          Login
+          Sign in
+        </button>
+        <button
+          class="h-full w-32 text-emerald-600"
+          (click)="this.clerk.signOut()"
+          *ngIf="this.clerk.user"
+        >
+          Sign out
         </button>
       </div>
     </div>
-    <main class="mt-32"><router-outlet></router-outlet></main>
+    <main class="mt-32">
+      <div id="mydiv"></div>
+      <router-outlet></router-outlet>
+    </main>
   </div>
 </div>
