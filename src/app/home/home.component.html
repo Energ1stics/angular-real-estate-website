@@ -7,30 +7,34 @@
 </p>
 <div class="flex flex-col pt-10">
   <ul class="flex">
-    <li
-      class="flex h-14 w-28 cursor-pointer items-center justify-center px-4 py-2 text-neutral-400"
-      [ngClass]="{
-        'bg-white text-emerald-500': this.getActiveTab() === 0,
-        'text-neutral-400': this.getActiveTab() !== 0
-      }"
-      (click)="toggleTab(0)"
-    >
-      <a class="text-2xl font-medium">Buy</a>
+    <li>
+      <button
+        class="flex h-14 w-28 items-center justify-center px-4 py-2 text-2xl font-medium text-neutral-400"
+        [ngClass]="{
+          'bg-white text-emerald-500': this.getActiveTab() === 0,
+          'text-neutral-400': this.getActiveTab() !== 0
+        }"
+        (click)="toggleTab(0)"
+      >
+        Buy
+      </button>
     </li>
-    <li
-      class="flex h-14 w-28 cursor-pointer items-center justify-center px-4 py-2 text-neutral-400"
-      [ngClass]="{
-        'bg-white text-emerald-500': this.getActiveTab() === 1,
-        'text-neutral-400': this.getActiveTab() !== 1
-      }"
-      (click)="toggleTab(1)"
-    >
-      <a class="text-2xl font-medium">Rent</a>
+    <li>
+      <button
+        class="flex h-14 w-28 items-center justify-center px-4 py-2 text-2xl font-medium text-neutral-400"
+        [ngClass]="{
+          'bg-white text-emerald-500': this.getActiveTab() === 1,
+          'text-neutral-400': this.getActiveTab() !== 1
+        }"
+        (click)="toggleTab(1)"
+      >
+        Rent
+      </button>
     </li>
   </ul>
   <div class="relative flex w-full lg:w-2/3">
     <div
-      class="absolute inset-y-0 left-0 shadow-lg transition-[width]"
+      class="pointer-events-none absolute inset-y-0 left-0 shadow-lg transition-[width]"
       [style.transition-duration.ms]="this.animationDuration"
       [ngClass]="{
         'w-0': this.isCollapsing(),
@@ -38,7 +42,7 @@
       }"
     ></div>
     <div
-      class="absolute inset-y-0 right-0 bg-neutral-100 transition-[width]"
+      class="pointer-events-none absolute inset-y-0 right-0 bg-neutral-100 transition-[width]"
       [style.transition-duration.ms]="this.animationDuration"
       [ngClass]="{
         'w-full': this.isCollapsing(),
@@ -51,20 +55,23 @@
     >
       <div class="flex h-full w-full flex-wrap justify-between gap-10 p-8">
         <div class="flex w-full flex-col md:w-auto">
-          <label class="h-1/2 text-slate-800">Location</label>
-          <select class="h-1/2 cursor-pointer pr-2 text-neutral-400">
+          <label for="location" class="h-1/2 text-slate-800">Location</label>
+          <select
+            id="location"
+            class="h-1/2 cursor-pointer pr-2 text-neutral-400"
+          >
             <option>Bogor, Jawa Barat</option>
           </select>
         </div>
         <div class="flex w-full flex-col md:w-auto">
-          <label class="h-1/2 text-slate-800">Type</label>
-          <select class="h-1/2 cursor-pointer pr-2 text-neutral-400">
+          <label for="type" class="h-1/2 text-slate-800">Type</label>
+          <select id="type" class="h-1/2 cursor-pointer pr-2 text-neutral-400">
             <option>Home</option>
           </select>
         </div>
         <div class="flex w-full flex-col md:w-auto">
-          <label class="h-1/2 text-slate-800">Price Range</label>
-          <select class="h-1/2 cursor-pointer pr-2 text-neutral-400">
+          <label for="price" class="h-1/2 text-slate-800">Price Range</label>
+          <select id="price" class="h-1/2 cursor-pointer pr-2 text-neutral-400">
             <option>$100-$200</option>
             <option>$200-$350</option>
           </select>
