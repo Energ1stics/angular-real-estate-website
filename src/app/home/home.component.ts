@@ -12,7 +12,6 @@ export class HomeComponent {
   openTab = 0;
 
   toggleTab(index: number) {
-    console.log('Change from tab ', this.openTab, ' to tab ', index);
     this.openTab = index;
   }
 }
