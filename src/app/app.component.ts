@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import Clerk from '@clerk/clerk-js';
 import { environment } from '../environments/environment';
@@ -10,7 +10,7 @@ import { environment } from '../environments/environment';
   imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'angular-real-estate-website';
 
   clerkPubKey = environment.CLERK_PUBLISHABLE_KEY;
