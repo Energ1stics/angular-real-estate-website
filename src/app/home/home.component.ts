@@ -1,5 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CityService as CityService } from '../services/city/city.service';
+import { City } from '../models/city';
+import { HousingTypeService } from '../services/housing-type/housing-type.service';
+import HousingType from '../models/housing-type';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +12,32 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  constructor(
+    private cityService: CityService,
+    private housingTypeService: HousingTypeService,
+  ) {}
+
+  cities: City[] = [];
+  housingTypes: HousingType[] = [];
+
+  ngOnInit(): void {
+    this.getCities();
+    this.getHousingTypes();
+  }
+
+  getCities(): void {
+    this.cityService.getCities().subscribe((cities) => (this.cities = cities));
+  }
+
+  getHousingTypes(): void {
+    this.housingTypeService
+      .getHousingTypes()
+      .subscribe((housingTypes) => (this.housingTypes = housingTypes));
+  }
+
+  // -- CODE BELOW SHOULD BE SEPERATED INTO A NEW COMPONENT -- //
+
   readonly animationDuration = 500;
   animation:
     | { state: 'collapsing' | 'expanding'; fromTab: number; toTab: number }
