@@ -12,10 +12,17 @@ export class HomeComponent {
   readonly animationDuration = 2 * 500;
   openTab = 0;
   animationActive = false;
+  runningTimeoutId: number | null = null;
 
   toggleTab(index: number) {
     this.animationActive = true;
     this.openTab = index;
-    setTimeout(() => (this.animationActive = false), this.animationDuration);
+
+    this.runningTimeoutId && clearTimeout(this.runningTimeoutId);
+
+    this.runningTimeoutId = setTimeout(
+      () => (this.animationActive = false),
+      this.animationDuration,
+    );
   }
 }
