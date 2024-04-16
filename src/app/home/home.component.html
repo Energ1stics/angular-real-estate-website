@@ -28,7 +28,7 @@
       <a class="text-2xl font-medium">Rent</a>
     </li>
   </ul>
-  <div class="flex w-3/5">
+  <div class="flex w-3/5 flex-wrap">
     <div
       class="flex flex-wrap overflow-hidden bg-white shadow-lg transition-all duration-500"
       [ngClass]="{
@@ -79,6 +79,15 @@
           rent rent rent rent rent rent rent rent rent rent rent rent rent rent
         </p>
       </div>
+    </div>
+    <div
+      class="fixed -translate-y-10 translate-x-60 px-2"
+      [ngClass]="{
+        'bg-green-500': this.animationActive,
+        'bg-red-500': !this.animationActive
+      }"
+    >
+      Animation State
     </div>
   </div>
 </div>

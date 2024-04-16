@@ -9,9 +9,13 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
+  readonly animationDuration = 2 * 500;
   openTab = 0;
+  animationActive = false;
 
   toggleTab(index: number) {
+    this.animationActive = true;
     this.openTab = index;
+    setTimeout(() => (this.animationActive = false), this.animationDuration);
   }
 }
