@@ -1,30 +1,84 @@
-<h1 class="w-1/2 font-rubik text-6xl font-semibold leading-[74px]">
+<h1 class="w-3/5 font-rubik text-6xl font-semibold leading-[74px]">
   Let's hunt for your dream residence
 </h1>
-<p class="mt-6 w-2/5 leading-6 text-slate-500">
+<p class="mt-6 w-1/2 leading-6 text-slate-500">
   Explore our range of beautiful properties with the addition of seperate
   accommodation suitable for you.
 </p>
 <div class="flex flex-col pt-10">
   <ul class="flex">
     <li
-      class="flex h-14 w-28 items-center justify-center px-4 py-2 text-neutral-400"
+      class="flex h-14 w-28 cursor-pointer items-center justify-center px-4 py-2 text-neutral-400"
       [ngClass]="{
         'bg-white text-emerald-500': this.openTab === 0,
         'text-neutral-400': this.openTab !== 0
       }"
+      (click)="toggleTab(0)"
     >
-      <a class="text-2xl font-medium" (click)="toggleTab(0)">Buy</a>
+      <a class="text-2xl font-medium">Buy</a>
     </li>
     <li
-      class="flex h-14 w-28 items-center justify-center px-4 py-2 text-neutral-400"
+      class="flex h-14 w-28 cursor-pointer items-center justify-center px-4 py-2 text-neutral-400"
       [ngClass]="{
         'bg-white text-emerald-500': this.openTab === 1,
         'text-neutral-400': this.openTab !== 1
       }"
+      (click)="toggleTab(1)"
     >
-      <a class="text-2xl font-medium" (click)="toggleTab(1)">Rent</a>
+      <a class="text-2xl font-medium">Rent</a>
     </li>
   </ul>
-  <div class="h-32 w-1/2 bg-white shadow-lg"></div>
+  <div class="flex w-3/5">
+    <div
+      class="flex flex-wrap overflow-hidden bg-white shadow-lg transition-all duration-500"
+      [ngClass]="{
+        'w-full delay-500': this.openTab === 0,
+        'w-0': this.openTab !== 0
+      }"
+    >
+      <div class="flex h-full w-full flex-wrap justify-between gap-10 p-8">
+        <div class="flex w-full flex-col lg:w-auto">
+          <label class="h-1/2 text-slate-800">Location</label>
+          <select class="h-1/2 cursor-pointer pr-2 text-neutral-400">
+            <option>Bogor, Jawa Barat</option>
+          </select>
+        </div>
+        <div class="flex w-full flex-col lg:w-auto">
+          <label class="h-1/2 text-slate-800">Type</label>
+          <select class="h-1/2 cursor-pointer pr-2 text-neutral-400">
+            <option>Home</option>
+          </select>
+        </div>
+        <div class="flex w-full flex-col lg:w-auto">
+          <label class="h-1/2 text-slate-800">Price Range</label>
+          <select class="h-1/2 cursor-pointer pr-2 text-neutral-400">
+            <option>$100-$200</option>
+            <option>$200-$350</option>
+          </select>
+        </div>
+        <div class="w-full lg:w-auto lg:grow">
+          <button
+            class="h-full w-full rounded-md bg-emerald-500 px-6 py-4 align-middle font-medium text-white transition-colors hover:bg-emerald-600"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="h-32 overflow-hidden text-nowrap bg-white shadow-lg transition-[width] duration-500"
+      [ngClass]="{
+        'w-full delay-500': this.openTab === 1,
+        'w-0': this.openTab !== 1
+      }"
+    >
+      <div class="flex h-full w-full justify-between gap-10 p-8">
+        <p>
+          rent rent rent rent rent rent rent rent rent rent rent rent rent rent
+          rent rent rent rent rent rent rent rent rent rent rent rent rent rent
+          rent rent rent rent rent rent rent rent rent rent rent rent rent rent
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
