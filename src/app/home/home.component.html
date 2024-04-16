@@ -1,7 +1,7 @@
-<h1 class="w-3/5 font-rubik text-6xl font-semibold leading-[74px]">
+<h1 class="w-full font-rubik text-6xl font-semibold leading-[74px] lg:w-2/3">
   Let's hunt for your dream residence
 </h1>
-<p class="mt-6 w-1/2 leading-6 text-slate-500">
+<p class="mt-6 w-full leading-6 text-slate-500 lg:w-1/2">
   Explore our range of beautiful properties with the addition of seperate
   accommodation suitable for you.
 </p>
@@ -10,8 +10,8 @@
     <li
       class="flex h-14 w-28 cursor-pointer items-center justify-center px-4 py-2 text-neutral-400"
       [ngClass]="{
-        'bg-white text-emerald-500': this.openTab === 0,
-        'text-neutral-400': this.openTab !== 0
+        'bg-white text-emerald-500': this.getActiveTab() === 0,
+        'text-neutral-400': this.getActiveTab() !== 0
       }"
       (click)="toggleTab(0)"
     >
@@ -20,36 +20,49 @@
     <li
       class="flex h-14 w-28 cursor-pointer items-center justify-center px-4 py-2 text-neutral-400"
       [ngClass]="{
-        'bg-white text-emerald-500': this.openTab === 1,
-        'text-neutral-400': this.openTab !== 1
+        'bg-white text-emerald-500': this.getActiveTab() === 1,
+        'text-neutral-400': this.getActiveTab() !== 1
       }"
       (click)="toggleTab(1)"
     >
       <a class="text-2xl font-medium">Rent</a>
     </li>
   </ul>
-  <div class="flex w-3/5 flex-wrap">
+  <div class="relative flex w-full lg:w-2/3">
     <div
-      class="flex flex-wrap overflow-hidden bg-white shadow-lg transition-[width] duration-500"
+      class="absolute inset-y-0 left-0 shadow-lg transition-[width]"
+      [style.transition-duration.ms]="this.animationDuration"
       [ngClass]="{
-        'w-full delay-500': this.openTab === 0,
-        'w-0': this.openTab !== 0
+        'w-0': this.isCollapsing(),
+        'w-full': !this.isCollapsing()
       }"
+    ></div>
+    <div
+      class="absolute inset-y-0 right-0 bg-neutral-100 transition-[width]"
+      [style.transition-duration.ms]="this.animationDuration"
+      [ngClass]="{
+        'w-full': this.isCollapsing(),
+        'w-0': !this.isCollapsing()
+      }"
+    ></div>
+    <div
+      class="flex w-full overflow-hidden bg-white"
+      [ngClass]="{ hidden: isTabHidden(0) }"
     >
       <div class="flex h-full w-full flex-wrap justify-between gap-10 p-8">
-        <div class="flex w-full flex-col lg:w-auto">
+        <div class="flex w-full flex-col md:w-auto">
           <label class="h-1/2 text-slate-800">Location</label>
           <select class="h-1/2 cursor-pointer pr-2 text-neutral-400">
             <option>Bogor, Jawa Barat</option>
           </select>
         </div>
-        <div class="flex w-full flex-col lg:w-auto">
+        <div class="flex w-full flex-col md:w-auto">
           <label class="h-1/2 text-slate-800">Type</label>
           <select class="h-1/2 cursor-pointer pr-2 text-neutral-400">
             <option>Home</option>
           </select>
         </div>
-        <div class="flex w-full flex-col lg:w-auto">
+        <div class="flex w-full flex-col md:w-auto">
           <label class="h-1/2 text-slate-800">Price Range</label>
           <select class="h-1/2 cursor-pointer pr-2 text-neutral-400">
             <option>$100-$200</option>
@@ -66,11 +79,8 @@
       </div>
     </div>
     <div
-      class="h-32 overflow-hidden text-nowrap bg-white shadow-lg transition-[width] duration-500"
-      [ngClass]="{
-        'w-full delay-500': this.openTab === 1,
-        'w-0': this.openTab !== 1
-      }"
+      class="h-32 overflow-hidden text-nowrap bg-white"
+      [ngClass]="{ hidden: this.isTabHidden(1) }"
     >
       <div class="flex h-full w-full justify-between gap-10 p-8">
         <p>
@@ -79,15 +89,6 @@
           rent rent rent rent rent rent rent rent rent rent rent rent rent rent
         </p>
       </div>
-    </div>
-    <div
-      class="fixed -translate-y-10 translate-x-60 px-2"
-      [ngClass]="{
-        'bg-green-500': this.animationActive,
-        'bg-red-500': !this.animationActive
-      }"
-    >
-      Animation State
     </div>
   </div>
 </div>

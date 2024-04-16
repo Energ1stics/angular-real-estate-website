@@ -9,20 +9,68 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  readonly animationDuration = 2 * 500;
-  openTab = 0;
-  animationActive = false;
-  runningTimeoutId: number | null = null;
+  readonly animationDuration = 500;
+  animation:
+    | { state: 'collapsing' | 'expanding'; fromTab: number; toTab: number }
+    | { state: 'none'; currentTab: number } = { state: 'none', currentTab: 0 };
+  private lastTimeoutId: number | undefined;
 
-  toggleTab(index: number) {
-    this.animationActive = true;
-    this.openTab = index;
+  isCollapsing() {
+    return this.animation.state === 'collapsing';
+  }
 
-    this.runningTimeoutId && clearTimeout(this.runningTimeoutId);
+  isExpanding() {
+    return this.animation.state === 'expanding';
+  }
 
-    this.runningTimeoutId = setTimeout(
-      () => (this.animationActive = false),
-      this.animationDuration,
-    );
+  isAnimationActive() {
+    return this.animation.state !== 'none';
+  }
+
+  getVisibleTab() {
+    return this.animation.state === 'none'
+      ? this.animation.currentTab
+      : this.animation.state === 'collapsing'
+        ? this.animation.fromTab
+        : this.animation.toTab;
+  }
+
+  isTabHidden(tab: number) {
+    return this.getVisibleTab() !== tab;
+  }
+
+  getActiveTab() {
+    return this.animation.state === 'none'
+      ? this.animation.currentTab
+      : this.animation.toTab;
+  }
+
+  toggleTab(toTab: number) {
+    if (
+      this.animation.state === 'none' &&
+      this.animation.currentTab === toTab
+    ) {
+      return;
+    }
+    if (this.animation.state !== 'none' && this.animation.toTab === toTab) {
+      return;
+    }
+
+    clearTimeout(this.lastTimeoutId);
+    this.lastTimeoutId = undefined;
+
+    this.animation = {
+      state: 'collapsing',
+      fromTab: this.getVisibleTab(),
+      toTab: toTab,
+    };
+
+    this.lastTimeoutId = setTimeout(() => {
+      this.animation.state = 'expanding';
+
+      this.lastTimeoutId = setTimeout(() => {
+        this.animation = { state: 'none', currentTab: toTab };
+      }, this.animationDuration);
+    }, this.animationDuration);
   }
 }
